@@ -59,15 +59,15 @@ const items = [
 
 export default function WhyWork() {
   return (
-    <section className="pb-16">
+    <section className="pb-12 md:pb-16">
       <Container>
-        <div className="rounded-3xl border border-white/10 bg-[#0B0F16] p-10">
+        <div className="rounded-3xl border border-white/10 bg-[#0B0F16] p-6 md:p-8 lg:p-10">
 
-          <h2 className="mb-10 text-3xl font-bold text-white">
+          <h2 className="mb-8 text-2xl font-bold leading-tight text-white sm:text-3xl md:mb-10">
             Why Work With Us?
           </h2>
 
-          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4">
             {items.map((item) => (
               <div key={item.title}>
                 <div className="mb-5 text-[#7C5CFF]">
@@ -78,7 +78,7 @@ export default function WhyWork() {
                   {item.title}
                 </h3>
 
-                <p className="mt-3 leading-7 text-neutral-400">
+                <p className="mt-3 text-[15px] leading-7 text-neutral-400 sm:text-base">
                   {item.description}
                 </p>
               </div>
