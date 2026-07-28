@@ -58,15 +58,27 @@ export default function ContactHero() {
               {t.contactPage.description}
             </p>
             <div className="mt-10 space-y-6 md:mt-12 md:space-y-8">
+              {/* Phone */}
               <div className="flex items-start gap-5">
                 <div className="rounded-xl bg-[#7C5CFF]/10 p-3 text-[#7C5CFF]">
                   <Phone size={22} />
                 </div>
                 <div>
                   <h3 className="font-semibold text-white">{t.contactPage.phone}</h3>
-                  <p className="mt-1 text-neutral-400">(281) 906-0248</p>
+                  <p className="mt-1 text-neutral-400">+1 (281) 906-0248</p>
                 </div>
               </div>
+              {/* WhatsApp */}
+              <div className="flex items-start gap-5">
+                <div className="rounded-xl bg-[#7C5CFF]/10 p-3 text-[#7C5CFF]">
+                  <MessageCircle size={22} />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-white">WhatsApp</h3>
+                  <p className="mt-1 text-neutral-400">+1 (281) 906-0248</p>
+                </div>
+              </div>
+              {/* Email */}
               <div className="flex items-start gap-5">
                 <div className="rounded-xl bg-[#7C5CFF]/10 p-3 text-[#7C5CFF]">
                   <Mail size={22} />
@@ -76,16 +88,6 @@ export default function ContactHero() {
                   <p className="mt-1 text-neutral-400">
                     solveradigitalagency@gmail.com
                   </p>
-                </div>
-              </div>
-              {/* WhatsApp contact item */}
-              <div className="flex items-start gap-5">
-                <div className="rounded-xl bg-[#7C5CFF]/10 p-3 text-[#7C5CFF]">
-                  <MessageCircle size={22} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-white">WhatsApp</h3>
-                  <p className="mt-1 text-neutral-400">+1 (281) 906-0248</p>
                 </div>
               </div>
               {/* Location block removed */}
