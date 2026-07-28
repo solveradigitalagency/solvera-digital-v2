@@ -30,7 +30,7 @@ const services = [
 
 export default function ServicesGrid() {
   return (
-    <section className="py-24">
+    <section className="py-16 md:py-20 lg:py-24">
       <Container>
 
         <div className="mb-16 text-center">
@@ -38,17 +38,17 @@ export default function ServicesGrid() {
             Our Services
           </p>
 
-          <h2 className="mt-4 text-4xl font-bold text-white">
+          <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl">
             Everything You Need to Grow Online
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-neutral-400">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-neutral-400 sm:text-lg">
             From custom design to development and SEO, we build websites that
             help your business stand out, build trust, and generate more leads.
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {services.map((service) => (
             <Card
               key={service.title}
