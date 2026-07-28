@@ -1,26 +1,147 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #07090d;
+  --foreground: #f8fafc;
+
+  --card: #11131a;
+  --card-hover: #171b24;
+
+  --border: rgba(255, 255, 255, 0.08);
+
+  --blue: #64a7ff;
+  --purple: #8b5cf6;
+
+  --muted: #a8b3c7;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #080b12;
+  color: #f8fafc;
+  font-family: var(--font-manrope), sans-serif;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: var(--blue);
+  color: white;
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+section {
+  scroll-margin-top: 100px;
+}
+
+/* ---------- Background Glow ---------- */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle at 20% 10%, rgba(100, 167, 255, 0.08), transparent 30%),
+    radial-gradient(circle at 80% 30%, rgba(139, 92, 246, 0.08), transparent 35%);
+
+  z-index: -1;
+}
+
+/* ---------- Animations ---------- */
+
+@keyframes glowMove {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  50% {
+    transform: translate(40px, 30px) scale(1.08);
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+@keyframes glowMoveReverse {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  50% {
+    transform: translate(-30px, -20px) scale(1.05);
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-glow {
+  animation: glowMove 6s ease-in-out infinite;
+}
+
+.animate-glow-reverse {
+  animation: glowMoveReverse 7s ease-in-out infinite;
+}
+
+/* ---------- Client Logo Strip ---------- */
+
+.marquee {
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 24s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-duration: 80s;
+}
+
+.client-item {
+  margin-right: 80px;
+  color: rgb(163 163 163);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.client-item:hover {
+  color: white;
+  transform: scale(1.08);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-33.333%);
+  }
 }
