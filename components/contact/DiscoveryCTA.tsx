@@ -9,15 +9,15 @@ export default function DiscoveryCTA() {
 
   return (
     <>
-      <section className="pb-16">
+      <section className="pb-12 md:pb-16">
         <Container>
-          <div className="flex flex-col items-center justify-between gap-6 rounded-3xl border border-white/10 bg-gradient-to-r from-[#11151E] to-[#18102A] px-10 py-6 lg:flex-row">
+          <div className="flex flex-col items-center justify-between gap-6 rounded-3xl border border-white/10 bg-gradient-to-r from-[#11151E] to-[#18102A] px-6 py-6 text-center md:px-8 lg:flex-row lg:px-10 lg:text-left">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#7C5CFF]">
                 Ready to Get Started?
               </p>
 
-              <h2 className="mt-3 text-3xl font-bold text-white">
+              <h2 className="mt-3 text-2xl font-bold leading-tight text-white sm:text-3xl">
                 Let's Build Your New Website.
               </h2>
 
@@ -29,7 +29,7 @@ export default function DiscoveryCTA() {
 
             <button
               onClick={() => setOpen(true)}
-              className="rounded-xl bg-gradient-to-r from-[#5EA7FF] to-[#8B5CF6] px-8 py-4 font-semibold text-white transition hover:opacity-90"
+              className="w-full max-w-xs rounded-xl bg-gradient-to-r from-[#5EA7FF] to-[#8B5CF6] px-8 py-4 font-semibold text-white transition hover:opacity-90 sm:w-auto"
             >
               Book a Free Discovery Call
             </button>
@@ -38,8 +38,8 @@ export default function DiscoveryCTA() {
       </section>
 
       {open && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-sm p-6">
-          <div className="relative w-full max-w-5xl rounded-3xl bg-[#0B0F16] border border-white/10 overflow-hidden">
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 sm:p-6">
+          <div className="relative w-full max-w-5xl rounded-3xl border border-white/10 bg-[#0B0F16] overflow-hidden">
 
             <button
               onClick={() => setOpen(false)}
@@ -48,8 +48,8 @@ export default function DiscoveryCTA() {
               ×
             </button>
 
-            <div className="p-8 pb-4 text-center">
-              <h2 className="text-3xl font-bold text-white">
+            <div className="p-6 pb-4 text-center sm:p-8 sm:pb-4">
+              <h2 className="text-2xl font-bold text-white sm:text-3xl">
                 Book Your Discovery Call
               </h2>
 
@@ -61,7 +61,7 @@ export default function DiscoveryCTA() {
             <InlineWidget
               url="https://calendly.com/solveradigitalagency/new-meeting"
               styles={{
-                height: "700px",
+                height: "min(700px, 75vh)",
               }}
             />
           </div>
