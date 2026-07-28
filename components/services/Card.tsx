@@ -13,7 +13,7 @@ export default function Card({
   description,
 }: CardProps) {
   return (
-    <div className="group rounded-3xl border border-white/10 bg-[#0B0F17] p-8 transition-all duration-300 hover:-translate-y-2 hover:border-[#7C5CFF]/40 hover:shadow-[0_20px_60px_rgba(124,92,255,.15)]">
+    <div className="group rounded-3xl border border-white/10 bg-[#0B0F17] p-6 sm:p-8 transition-all duration-300 hover:-translate-y-2 hover:border-[#7C5CFF]/40 hover:shadow-[0_20px_60px_rgba(124,92,255,.15)]">
 
       {/* Icon */}
       <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#7C5CFF]/10 text-[#7C5CFF]">
@@ -21,12 +21,12 @@ export default function Card({
       </div>
 
       {/* Title */}
-      <h3 className="text-2xl font-semibold text-white">
+      <h3 className="text-xl font-semibold text-white sm:text-2xl">
         {title}
       </h3>
 
       {/* Description */}
-      <p className="mt-4 leading-7 text-neutral-400">
+      <p className="mt-4 text-[15px] leading-7 text-neutral-400 sm:text-base">
         {description}
       </p>
 
