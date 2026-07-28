@@ -11,16 +11,16 @@ const values = [
 
 export default function AboutHero() {
   return (
-    <section className="pt-28 pb-12">
+    <section className="pt-20 pb-12 md:pt-24 lg:pt-28">
       <Container>
 
-        <div className="mx-auto grid max-w-6xl overflow-hidden rounded-3xl border border-white/10 bg-[#0B0F16] lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="mx-auto grid max-w-6xl overflow-hidden rounded-3xl border border-white/10 bg-[#0B0F16] md:grid-cols-[0.95fr_1.05fr]">
 
           {/* Left */}
 
-          <div className="p-8">
+          <div className="p-6 md:p-8">
 
-            <h1 className="text-4xl lg:text-5xl font-bold text-white">
+            <h1 className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
               About Solvera Digital
             </h1>
 
@@ -31,7 +31,7 @@ export default function AboutHero() {
 
             <div className="mt-6">
 
-              <h2 className="text-2xl font-semibold text-white">
+              <h2 className="text-xl font-semibold text-white sm:text-2xl">
                 Our Mission
               </h2>
 
@@ -45,14 +45,14 @@ export default function AboutHero() {
 
             <div className="mt-6">
 
-              <h2 className="text-2xl font-semibold text-white">
+              <h2 className="text-xl font-semibold text-white sm:text-2xl">
                 Our Values
               </h2>
 
               <div className="mt-4 space-y-3">
 
                 {values.map((value) => (
-                  <div key={value} className="flex gap-3">
+                  <div key={value} className="flex items-start gap-3">
 
                     <CheckCircle2
                       size={20}
@@ -74,7 +74,7 @@ export default function AboutHero() {
 
           {/* Right */}
 
-          <div className="relative min-h-[400px] lg:min-h-[430px]">
+          <div className="relative min-h-[260px] md:min-h-[400px] lg:min-h-[430px]">
 
             <Image
               src="/images/solveraoffice.png"
