@@ -11,15 +11,15 @@ const points = [
 
 export default function WhyProcess() {
   return (
-    <section className="pb-24">
+    <section className="pb-16 md:pb-20 lg:pb-24">
       <Container>
 
-        <div className="grid overflow-hidden rounded-3xl border border-white/10 bg-[#0B0F16] lg:grid-cols-2">
+        <div className="grid overflow-hidden rounded-3xl border border-white/10 bg-[#0B0F16] md:grid-cols-2">
 
           {/* Left */}
-          <div className="flex flex-col justify-center p-12">
+          <div className="flex flex-col justify-center p-8 md:p-10 lg:p-12">
 
-            <h2 className="text-3xl font-bold text-white">
+            <h2 className="text-2xl font-bold leading-tight text-white sm:text-3xl">
               Why Our Process Works
             </h2>
 
@@ -46,7 +46,7 @@ export default function WhyProcess() {
           </div>
 
           {/* Right */}
-          <div className="relative min-h-[420px]">
+          <div className="relative min-h-[260px] md:min-h-[420px]">
 
             <Image
               src="/images/processlogo.png"
