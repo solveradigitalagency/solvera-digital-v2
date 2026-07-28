@@ -43,7 +43,7 @@ export default function HomeFeatures() {
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#7C5CFF]">
             WHY SOLVERA
           </p>
-          <h2 className="mt-6 text-[48px] font-bold leading-[1.05] tracking-tight text-white">
+          <h2 className="mt-4 text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-[48px]">
             High-Performance Websites
             <br />
             Built for Your Success
@@ -52,15 +52,15 @@ export default function HomeFeatures() {
 
         {/* Features Grid */}
         <div className="mt-24">
-          <div className="grid grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
             {features.map((feature) => (
               <div
                 key={feature.title}
                 className="
                   group
                   w-full
-                  max-w-[390px]
-                  h-[220px]
+                  max-w-full
+                  min-h-[220px]
                   rounded-[30px]
                   border border-white/10
                   bg-white/[0.03]
@@ -89,7 +89,7 @@ export default function HomeFeatures() {
         </div>
 
         {/* Image and Why Website Matters Section */}
-        <div className="mt-20 grid lg:grid-cols-[1fr_1fr] gap-20 items-center">
+        <div className="mt-20 grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20 items-center">
           {/* NEW LEFT COLUMN */}
           <div className="flex justify-center">
             <div className="rounded-[32px] overflow-hidden border border-white/10 bg-white/5 p-6 w-full max-w-[720px] shadow-[0_0_60px_rgba(124,92,255,0.08)] relative">
@@ -116,14 +116,14 @@ export default function HomeFeatures() {
               customers long before they ever contact you.
             </p>
             {/* Why website matters features */}
-            <div className="mt-10 mx-auto flex max-w-[620px] justify-between">
+            <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 max-w-[620px] mx-auto">
               <div
                 className="
                   rounded-2xl
                   border border-white/10
                   bg-white/5
                   p-5
-                  w-[48%]
+                  w-full
                   transition-all
                   duration-300
                   hover:-translate-y-1.5
@@ -145,7 +145,7 @@ export default function HomeFeatures() {
                   border border-white/10
                   bg-white/5
                   p-5
-                  w-[48%]
+                  w-full
                   transition-all
                   duration-300
                   hover:-translate-y-1.5
@@ -162,14 +162,14 @@ export default function HomeFeatures() {
                 </p>
               </div>
             </div>
-            <div className="mt-5 mx-auto flex max-w-[620px] justify-between">
+            <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 max-w-[620px] mx-auto">
               <div
                 className="
                   rounded-2xl
                   border border-white/10
                   bg-white/5
                   p-5
-                  w-[48%]
+                  w-full
                   transition-all
                   duration-300
                   hover:-translate-y-1.5
@@ -191,7 +191,7 @@ export default function HomeFeatures() {
                   border border-white/10
                   bg-white/5
                   p-5
-                  w-[48%]
+                  w-full
                   transition-all
                   duration-300
                   hover:-translate-y-1.5
@@ -214,7 +214,7 @@ export default function HomeFeatures() {
             {/* Keep existing stats and globe layout as-is in right column */}
             <div className="mt-14 flex justify-center">
               {/* Stats */}
-              <div className="flex gap-20">
+              <div className="flex flex-col gap-10 sm:flex-row sm:gap-12 lg:gap-20">
                 <div className="text-center">
                   <h3 className="text-4xl font-bold text-[#7C5CFF]">
                     24/7
