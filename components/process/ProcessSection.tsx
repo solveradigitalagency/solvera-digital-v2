@@ -67,14 +67,14 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section className="pt-32 pb-16">
+    <section className="pt-20 pb-12 md:pt-24 md:pb-16 lg:pt-32">
       <Container>
         {/* Header */}
         <div className="mb-14">
-          <h1 className="text-5xl font-bold text-white">
+          <h1 className="text-4xl font-bold leading-tight text-white sm:text-5xl">
             Our Process
           </h1>
-          <p className="mt-4 text-sm uppercase tracking-[0.25em] text-white">
+          <p className="mt-4 text-xs uppercase tracking-[0.2em] text-white sm:text-sm sm:tracking-[0.25em]">
             A Simple Process That Delivers Results
           </p>
         </div>
@@ -84,7 +84,7 @@ export default function ProcessSection() {
         <div className="relative mb-16">
           <div className="absolute top-8 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#8B5CF6]/60 to-transparent hidden lg:block" />
 
-          <div className="grid gap-12 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12">
             {steps.map((step) => (
               <motion.div
                 key={step.number}
