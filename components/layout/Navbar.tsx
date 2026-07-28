@@ -55,7 +55,7 @@ export default function Navbar() {
           : "bg-transparent"
       )}
     >
-      <Container className="flex h-24 max-w-[1400px] items-center justify-between">
+      <Container className="flex h-20 md:h-24 max-w-[1400px] items-center justify-between">
 
         {/* Logo links to / and scrolls to top smoothly if already on home */}
         <Link href="/" onClick={handleLogoClick}>
@@ -64,7 +64,7 @@ export default function Navbar() {
             alt="Solvera Digital"
             width={360}
             height={110}
-            className="w-[250px] h-auto"
+            className="w-[170px] md:w-[210px] lg:w-[250px] h-auto"
             priority
           />
         </Link>
@@ -76,7 +76,6 @@ export default function Navbar() {
               href={link.href}
               className={cn(
                 "relative text-sm font-medium text-neutral-300 transition hover:text-white",
-
                 pathname === link.href &&
                   "text-white after:absolute after:-bottom-2 after:left-0 after:h-[2px] after:w-full after:rounded-full after:bg-[#5EA7FF]"
               )}
@@ -96,31 +95,52 @@ export default function Navbar() {
           className="lg:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          {menuOpen ? <X size={30} /> : <Menu size={30} />}
+          {menuOpen ? <X size={34} strokeWidth={2.2} /> : <Menu size={34} strokeWidth={2.2} />}
         </button>
 
       </Container>
 
       {menuOpen && (
-        <div className="border-t border-white/10 bg-[#07090D]/95 lg:hidden">
-          <Container className="max-w-[1400px]">
-            <nav className="flex flex-col gap-6 py-8">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-lg text-neutral-300"
-                >
-                  {link.name}
-                </Link>
-              ))}
+        <div className="fixed inset-0 z-50 bg-[#07090D] flex flex-col lg:hidden">
+          <div className="flex items-center justify-between h-20 md:h-24 px-6 md:px-12 border-b border-white/10">
+            <Link href="/" onClick={(e) => {handleLogoClick(e); setMenuOpen(false);}}>
+              <Image
+                src="/images/solvera-logo.png"
+                alt="Solvera Digital"
+                width={360}
+                height={110}
+                className="w-[170px] md:w-[210px] lg:w-[250px] h-auto"
+                priority
+              />
+            </Link>
+            <button
+              className="ml-2"
+              onClick={() => setMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              <X size={34} strokeWidth={2.2} />
+            </button>
+          </div>
+          <nav className="flex flex-col items-center gap-8 pt-28 pb-8 px-4">
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className="text-2xl font-semibold text-neutral-200 transition hover:text-white"
+              >
+                {link.name}
+              </Link>
+            ))}
 
-              <Button href="/contact">
-                Book a Free Call
-              </Button>
-            </nav>
-          </Container>
+            <Button
+              href="/contact"
+              className="mt-8 w-full max-w-xs"
+              onClick={() => setMenuOpen(false)}
+            >
+              Book a Free Call
+            </Button>
+          </nav>
         </div>
       )}
     </header>

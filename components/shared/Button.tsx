@@ -6,6 +6,7 @@ interface ButtonProps {
   href: string;
   variant?: "primary" | "secondary";
   className?: string;
+  onClick?: () => void;
 }
 
 export default function Button({
@@ -13,10 +14,12 @@ export default function Button({
   href,
   variant = "primary",
   className,
+  onClick,
 }: ButtonProps) {
   return (
     <Link
       href={href}
+      onClick={onClick}
       className={cn(
         "inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold transition-all duration-300",
         variant === "primary"
