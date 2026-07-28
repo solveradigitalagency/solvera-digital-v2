@@ -17,7 +17,7 @@ const highlights = [
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#07090D] min-h-screen">
+    <section className="relative overflow-hidden bg-[#07090D] min-h-[760px] lg:min-h-screen">
       {/* Mountains Background */}
       <div className="absolute inset-0">
         <Image
@@ -32,11 +32,11 @@ export default function Hero() {
       {/* Purple Glow */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 h-[700px] w-[700px] rounded-full bg-[#6F46FF]/25 blur-[170px]" />
 
-      <Container className="relative z-10 flex pt-28">
+      <Container className="relative z-10 flex pt-20 md:pt-24 lg:pt-28">
 
         {/* LEFT */}
         <motion.div
-          className="max-w-[560px]"
+          className="max-w-full lg:max-w-[560px]"
           variants={staggerContainer}
           initial="hidden"
           whileInView="show"
@@ -52,7 +52,7 @@ export default function Hero() {
           </motion.p>
 
           <motion.h1
-            className="mt-8 text-5xl font-extrabold leading-tight md:text-6xl xl:text-7xl"
+            className="mt-6 text-4xl font-extrabold leading-tight sm:text-5xl md:text-6xl xl:text-7xl"
             variants={fadeUp}
           >
             We Build Websites
@@ -63,7 +63,7 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p
-            className="mt-8 text-lg leading-8 text-neutral-300"
+            className="mt-6 text-base leading-7 text-neutral-300 md:text-lg md:leading-8"
             variants={fadeUp}
           >
             Solvera Digital helps businesses establish a professional online
@@ -71,7 +71,7 @@ export default function Hero() {
           </motion.p>
 
           <motion.div
-            className="mt-10 flex gap-5 flex-wrap"
+            className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap"
             variants={fadeUp}
           >
             <Button href="/contact">
@@ -86,7 +86,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            className="mt-8 flex flex-wrap items-center gap-6 text-sm text-neutral-400"
+            className="mt-8 flex flex-wrap gap-4 md:gap-6 text-sm text-neutral-400"
             variants={fadeUp}
           >
             {highlights.map((item) => (
