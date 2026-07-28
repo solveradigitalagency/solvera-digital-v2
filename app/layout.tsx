@@ -8,7 +8,7 @@ export const metadata = {
   title: "Solvera Digital",
   description: "...",
   icons: {
-    icon: "/favicon.svg",
+    icon: "/favicon.png",
   },
 };
 
