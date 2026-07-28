@@ -1,0 +1,11 @@
+{
+    "navbar": {
+      "home": "Inicio",
+      "services": "Servicios",
+      "process": "Proceso",
+      "about": "Nosotros",
+      "contact": "Contacto",
+      "cta": "Agenda una Llamada",
+      "language": "Español"
+    }
+  }
