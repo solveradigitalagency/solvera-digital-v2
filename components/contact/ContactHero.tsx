@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import Container from "@/components/shared/Container";
-import { Phone, Mail } from "lucide-react";
+import { Phone, Mail, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function ContactHero() {
@@ -76,6 +76,16 @@ export default function ContactHero() {
                   <p className="mt-1 text-neutral-400">
                     solveradigitalagency@gmail.com
                   </p>
+                </div>
+              </div>
+              {/* WhatsApp contact item */}
+              <div className="flex items-start gap-5">
+                <div className="rounded-xl bg-[#7C5CFF]/10 p-3 text-[#7C5CFF]">
+                  <MessageCircle size={22} />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-white">WhatsApp</h3>
+                  <p className="mt-1 text-neutral-400">+1 (281) 906-0248</p>
                 </div>
               </div>
               {/* Location block removed */}
