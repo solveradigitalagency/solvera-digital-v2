@@ -7,15 +7,11 @@ import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer } from "@/lib/animations";
-
-const highlights = [
-  "Fast Delivery",
-  "Custom Design",
-  "Mobile Optimized",
-  "SEO Friendly",
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Hero() {
+  const { t, language } = useLanguage();
+
   return (
     <section className="relative overflow-hidden bg-[#07090D] min-h-[760px] lg:min-h-screen">
       {/* Mountains Background */}
@@ -36,7 +32,7 @@ export default function Hero() {
 
         {/* LEFT */}
         <motion.div
-          className="max-w-full lg:max-w-[560px]"
+          className={`max-w-full lg:max-w-[560px] ${language === "es" ? "-mt-4" : ""}`}
           variants={staggerContainer}
           initial="hidden"
           whileInView="show"
@@ -47,18 +43,18 @@ export default function Hero() {
             className="mb-6 text-xs font-semibold uppercase tracking-[0.3em]"
             variants={fadeUp}
           >
-            <span className="text-[#5EA7FF]">MODERN WEBSITES.</span>{" "}
-            <span className="text-[#7C5CFF]">REAL RESULTS.</span>
+            <span className="text-[#5EA7FF]">{t.hero.badgeBlue}</span>{" "}
+            <span className="text-[#7C5CFF]">{t.hero.badgePurple}</span>
           </motion.p>
 
           <motion.h1
             className="mt-6 text-4xl font-extrabold leading-tight sm:text-5xl md:text-6xl xl:text-7xl"
             variants={fadeUp}
           >
-            We Build Websites
+            {t.hero.titleLine1}
             <br />
             <span className="bg-gradient-to-r from-[#5EA7FF] to-[#8B5CF6] bg-clip-text text-transparent">
-              That Grow Your Business.
+              {t.hero.titleLine2}
             </span>
           </motion.h1>
 
@@ -66,8 +62,7 @@ export default function Hero() {
             className="mt-6 text-base leading-7 text-neutral-300 md:text-lg md:leading-8"
             variants={fadeUp}
           >
-            Solvera Digital helps businesses establish a professional online
-            presence with fast, modern, and conversion-focused websites.
+            {t.hero.description}
           </motion.p>
 
           <motion.div
@@ -75,13 +70,13 @@ export default function Hero() {
             variants={fadeUp}
           >
             <Button href="/contact">
-              Book a Free Discovery Call
+              {t.hero.primaryButton}
             </Button>
             <Button
               href="/services"
               variant="secondary"
             >
-              View Our Services
+              {t.hero.secondaryButton}
             </Button>
           </motion.div>
 
@@ -89,7 +84,7 @@ export default function Hero() {
             className="mt-8 flex flex-wrap gap-4 md:gap-6 text-sm text-neutral-400"
             variants={fadeUp}
           >
-            {highlights.map((item) => (
+            {t.hero.highlights.map((item) => (
               <div key={item} className="flex items-center gap-2">
                 <CheckCircle2
                   size={15}

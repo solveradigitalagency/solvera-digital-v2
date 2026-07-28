@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import Container from "@/components/shared/Container";
 import { Phone, Mail, Clock } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ContactHero() {
   const [name, setName] = useState("");
@@ -12,6 +13,8 @@ export default function ContactHero() {
   const [message, setMessage] = useState("");
   const [sending, setSending] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+
+  const { t } = useLanguage();
 
   const sendEmail = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -49,10 +52,10 @@ export default function ContactHero() {
           {/* Left */}
           <div>
             <h1 className="text-4xl font-bold leading-tight text-white sm:text-5xl">
-              Let's Connect
+              {t.contactPage.title}
             </h1>
             <p className="mt-4 text-neutral-400">
-              Have a project in mind? Let's talk.
+              {t.contactPage.description}
             </p>
             <div className="mt-10 space-y-6 md:mt-12 md:space-y-8">
               <div className="flex items-start gap-5">
@@ -60,8 +63,8 @@ export default function ContactHero() {
                   <Phone size={22} />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white">Phone</h3>
-                  <p className="mt-1 text-neutral-400">281-906-0248</p>
+                  <h3 className="font-semibold text-white">{t.contactPage.phone}</h3>
+                  <p className="mt-1 text-neutral-400">(281) 906-0248</p>
                 </div>
               </div>
               <div className="flex items-start gap-5">
@@ -69,7 +72,7 @@ export default function ContactHero() {
                   <Mail size={22} />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white">Email</h3>
+                  <h3 className="font-semibold text-white">{t.contactPage.email}</h3>
                   <p className="mt-1 text-neutral-400">
                     solveradigitalagency@gmail.com
                   </p>
@@ -81,8 +84,8 @@ export default function ContactHero() {
                   <Clock size={22} />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white">Support</h3>
-                  <p className="mt-1 text-neutral-400">24/7 support</p>
+                  <h3 className="font-semibold text-white">{t.contactPage.support}</h3>
+                  <p className="mt-1 text-neutral-400">{t.contactPage.supportValue}</p>
                 </div>
               </div>
             </div>
@@ -91,14 +94,14 @@ export default function ContactHero() {
           {/* Right */}
           <div className="rounded-3xl border border-white/10 bg-[#0B0F16] p-6 md:p-8">
             <h2 className="text-xl font-semibold text-white sm:text-2xl">
-              Send Us a Message
+              {t.contactPage.formTitle}
             </h2>
 
             <form className="mt-8 space-y-5" onSubmit={sendEmail}>
               <div className="grid gap-5 md:grid-cols-2">
                 <input
                   type="text"
-                  placeholder="Name"
+                  placeholder={t.contactPage.placeholders.name}
                   className="rounded-xl border border-white/10 bg-[#11151D] px-4 py-4 text-white outline-none transition focus:border-[#7C5CFF]"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -107,7 +110,7 @@ export default function ContactHero() {
 
                 <input
                   type="email"
-                  placeholder="Email"
+                  placeholder={t.contactPage.placeholders.email}
                   className="rounded-xl border border-white/10 bg-[#11151D] px-4 py-4 text-white outline-none transition focus:border-[#7C5CFF]"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -117,7 +120,7 @@ export default function ContactHero() {
 
               <input
                 type="tel"
-                placeholder="Phone (optional)"
+                placeholder={t.contactPage.placeholders.phone}
                 className="w-full rounded-xl border border-white/10 bg-[#11151D] px-4 py-4 text-white outline-none transition focus:border-[#7C5CFF]"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
@@ -126,7 +129,7 @@ export default function ContactHero() {
 
               <textarea
                 rows={6}
-                placeholder="Tell us about your project..."
+                placeholder={t.contactPage.placeholders.message}
                 className="w-full resize-none rounded-xl border border-white/10 bg-[#11151D] px-4 py-4 text-white outline-none transition focus:border-[#7C5CFF]"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
@@ -138,7 +141,7 @@ export default function ContactHero() {
                 disabled={sending}
                 className="w-full rounded-xl bg-gradient-to-r from-[#5EA7FF] to-[#8B5CF6] py-4 font-semibold text-white transition hover:opacity-90 disabled:opacity-60"
               >
-                {sending ? "Sending..." : "Send Message →"}
+                {sending ? t.contactPage.sending : t.contactPage.sendButton}
               </button>
             </form>
           </div>
@@ -163,19 +166,19 @@ export default function ContactHero() {
               </svg>
             </div>
             <h2 className="mt-6 text-3xl font-bold text-white">
-              Message Sent!
+              {t.contactPage.success.title}
             </h2>
             <p className="mt-4 text-neutral-400 leading-7">
-              Thanks for reaching out!
-              <br />
-              We've received your message and will get back to you within
-              <strong className="text-white"> 24 hours.</strong>
+              {t.contactPage.success.description}
+              <strong className="text-white">
+                {" "}{t.contactPage.success.highlight}
+              </strong>
             </p>
             <button
               onClick={() => setShowSuccess(false)}
               className="mt-8 w-full rounded-xl bg-gradient-to-r from-[#5EA7FF] to-[#8B5CF6] py-4 text-base font-semibold text-white transition hover:opacity-90"
             >
-              Awesome!
+              {t.contactPage.success.button}
             </button>
           </div>
         </div>

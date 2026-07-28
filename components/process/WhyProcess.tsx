@@ -1,15 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Container from "@/components/shared/Container";
 import { CheckCircle2 } from "lucide-react";
-
-const points = [
-  "Transparent at every step",
-  "No surprises, just results",
-  "Built for long-term success",
-  "Focused on your growth",
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function WhyProcess() {
+  const { t } = useLanguage();
+
   return (
     <section className="pb-16 md:pb-20 lg:pb-24">
       <Container>
@@ -20,17 +18,15 @@ export default function WhyProcess() {
           <div className="flex flex-col justify-center p-8 md:p-10 lg:p-12">
 
             <h2 className="text-2xl font-bold leading-tight text-white sm:text-3xl">
-              Why Our Process Works
+              {t.whyProcess.title}
             </h2>
 
             <p className="mt-5 text-neutral-400 leading-8">
-              We combine clear communication, proven strategies, and
-              high-quality development to create websites that don't just
-              look amazing—they generate results.
+              {t.whyProcess.description}
             </p>
 
             <div className="mt-10 space-y-5">
-              {points.map((point) => (
+              {t.whyProcess.points.map((point) => (
                 <div key={point} className="flex items-center gap-3">
                   <CheckCircle2
                     size={20}

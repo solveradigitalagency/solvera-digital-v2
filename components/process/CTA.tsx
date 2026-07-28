@@ -1,7 +1,12 @@
+"use client";
+
 import Container from "@/components/shared/Container";
 import Button from "@/components/shared/Button";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function CTA() {
+  const { t } = useLanguage();
+
   return (
     <section className="pb-16">
       <Container>
@@ -10,16 +15,15 @@ export default function CTA() {
 
           <div className="text-center lg:text-left">
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#7C5CFF]">
-              Ready to Get Started?
+              {t.processCTA.badge}
             </p>
 
             <h2 className="mt-3 text-2xl font-bold leading-tight text-white sm:text-3xl">
-              Let's Build Your New Website.
+              {t.processCTA.title}
             </h2>
 
             <p className="mt-4 max-w-xl text-neutral-400">
-              Schedule a free discovery call and let's discuss how we can
-              create a website that helps your business stand out online.
+              {t.processCTA.description}
             </p>
           </div>
 
@@ -27,7 +31,7 @@ export default function CTA() {
             href="/contact"
             className="w-full max-w-xs sm:w-auto"
           >
-            Book a Free Discovery Call
+            {t.processCTA.button}
           </Button>
 
         </div>

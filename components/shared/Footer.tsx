@@ -1,11 +1,16 @@
+"use client";
+
 import {
   Mail,
   Phone,
 } from "lucide-react";
 
 import Container from "./Container";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="border-t border-white/10 bg-[#07090D] py-8 md:py-10">
       <Container>
@@ -21,7 +26,7 @@ export default function Footer() {
             </div>
 
             <p className="mt-3 max-w-xs leading-7 text-neutral-400">
-              Modern websites built to grow your business.
+              {t.footer.tagline}
             </p>
             {/* Removed mail icon link below the tagline */}
           </div>
@@ -29,7 +34,7 @@ export default function Footer() {
           {/* Contact */}
           <div className="lg:ml-auto">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
-              Let's Connect
+              {t.footer.heading}
             </h3>
             <div className="mt-3 flex flex-col gap-3 text-neutral-400">
               <div className="flex items-center justify-center gap-2 lg:justify-start">
@@ -56,7 +61,7 @@ export default function Footer() {
         </div>
 
         <p className="mt-6 text-center text-sm text-neutral-500">
-          © 2026 Solvera Digital. All rights reserved.
+          {t.footer.copyright}
         </p>
       </Container>
     </footer>

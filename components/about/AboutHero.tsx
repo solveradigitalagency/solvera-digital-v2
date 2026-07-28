@@ -1,15 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Container from "@/components/shared/Container";
 import { CheckCircle2 } from "lucide-react";
-
-const values = [
-  "Results First — We focus on what moves the needle.",
-  "Integrity — Honest communication and transparent process.",
-  "Excellence — High-quality work, every time.",
-  "Growth Mindset — Always learning and improving.",
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function AboutHero() {
+  const { t } = useLanguage();
+
   return (
     <section className="pt-20 pb-12 md:pt-24 lg:pt-28">
       <Container>
@@ -21,24 +19,21 @@ export default function AboutHero() {
           <div className="p-6 md:p-8">
 
             <h1 className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-              About Solvera Digital
+              {t.about.hero.title}
             </h1>
 
             <p className="mt-5 text-neutral-400">
-              We're passionate about helping businesses grow with modern,
-              high-performance websites.
+              {t.about.hero.description}
             </p>
 
             <div className="mt-6">
 
               <h2 className="text-xl font-semibold text-white sm:text-2xl">
-                Our Mission
+                {t.about.hero.missionTitle}
               </h2>
 
               <p className="mt-3 text-neutral-400 leading-7">
-                To help businesses establish a professional online presence
-                through fast, modern websites that attract customers and
-                drive growth.
+                {t.about.hero.missionDescription}
               </p>
 
             </div>
@@ -46,18 +41,20 @@ export default function AboutHero() {
             <div className="mt-6">
 
               <h2 className="text-xl font-semibold text-white sm:text-2xl">
-                Our Values
+                {t.about.hero.valuesTitle}
               </h2>
 
               <div className="mt-4 space-y-3">
 
-                {values.map((value) => (
+                {t.about.hero.values.map((value) => (
                   <div key={value} className="flex items-start gap-3">
 
-                    <CheckCircle2
-                      size={20}
-                      className="mt-1 text-[#7C5CFF]"
-                    />
+                    <div className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center">
+                      <CheckCircle2
+                        size={20}
+                        className="text-[#7C5CFF]"
+                      />
+                    </div>
 
                     <span className="text-neutral-300">
                       {value}

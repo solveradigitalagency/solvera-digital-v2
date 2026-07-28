@@ -1,61 +1,45 @@
-import Container from "@/components/shared/Container";
+"use client";
+
 import Image from "next/image";
+import Container from "@/components/shared/Container";
 import {
   Palette,
   Zap,
   TrendingUp,
   MessagesSquare,
 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
-const features = [
-  {
-    icon: <Palette size={28} />,
-    title: "Custom Web Design",
-    description:
-      "Modern, professional designs tailored to your brand goals.",
-  },
-  {
-    icon: <Zap size={28} />,
-    title: "Performance Optimized",
-    description:
-      "Fast-loading websites built for every device.",
-  },
-  {
-    icon: <TrendingUp size={28} />,
-    title: "Conversion Focused",
-    description:
-      "Strategic layouts that generate more leads.",
-  },
-  {
-    icon: <MessagesSquare size={28} />,
-    title: "Transparent Process",
-    description:
-      "Clear communication from start to finish.",
-  },
+const icons = [
+  <Palette size={28} key="palette" />,
+  <Zap size={28} key="zap" />,
+  <TrendingUp size={28} key="trending" />,
+  <MessagesSquare size={28} key="messages" />,
 ];
 
 export default function HomeFeatures() {
+  const { t } = useLanguage();
+
   return (
     <section className="pt-12 pb-6">
       <Container className="max-w-[1500px]">
         {/* Features Top Heading */}
         <div className="mb-16">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#7C5CFF]">
-            WHY SOLVERA
+            {t.homeFeatures.badge}
           </p>
           <h2 className="mt-4 text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-[48px]">
-            High-Performance Websites
+            {t.homeFeatures.titleLine1}
             <br />
-            Built for Your Success
+            {t.homeFeatures.titleLine2}
           </h2>
         </div>
 
-        {/* Features Grid */}
         <div className="mt-24">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
-            {features.map((feature) => (
+            {t.homeFeatures.cards.map((feature, index) => (
               <div
-                key={feature.title}
+                key={index}
                 className="
                   group
                   w-full
@@ -75,11 +59,13 @@ export default function HomeFeatures() {
                 "
               >
                 <div className="mb-6 text-[#7C5CFF]">
-                  {feature.icon}
+                  {icons[index]}
                 </div>
+
                 <h3 className="text-[20px] font-semibold leading-tight text-white transition-colors duration-300 group-hover:text-[#9E7BFF]">
                   {feature.title}
                 </h3>
+
                 <p className="mt-4 text-[15px] leading-7 text-neutral-400">
                   {feature.description}
                 </p>
@@ -89,160 +75,81 @@ export default function HomeFeatures() {
         </div>
 
         {/* Image and Why Website Matters Section */}
-        <div className="mt-20 grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20 items-center">
-          {/* NEW LEFT COLUMN */}
+        <div className="mt-20 grid items-center gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
+          {/* Left */}
           <div className="flex justify-center">
-            <div className="rounded-[32px] overflow-hidden border border-white/10 bg-white/5 p-6 w-full max-w-[720px] shadow-[0_0_60px_rgba(124,92,255,0.08)] relative">
+            <div className="relative w-full max-w-[720px] overflow-hidden rounded-[32px] border border-white/10 bg-white/5 p-6 shadow-[0_0_60px_rgba(124,92,255,0.08)]">
               <Image
                 src="/images/website-matters-graphic.png"
                 alt="Solvera Digital website illustration"
                 width={900}
                 height={900}
                 priority
-                className="w-full h-auto rounded-2xl"
+                className="h-auto w-full rounded-2xl"
               />
             </div>
           </div>
+
+          {/* Right */}
           <div>
-            <p className="text-sm uppercase tracking-[0.25em] text-[#7C5CFF] font-medium">
-              WHY YOUR WEBSITE MATTERS
+            <p className="text-sm font-medium uppercase tracking-[0.25em] text-[#7C5CFF]">
+              {t.homeFeatures.websiteMatters.badge}
             </p>
-            <h3 className="mt-4 text-4xl font-bold text-white leading-tight">
-              Your Website Should Work Even When You're Not.
+
+            <h3 className="mt-4 text-4xl font-bold leading-tight text-white">
+              {t.homeFeatures.websiteMatters.title}
             </h3>
+
             <p className="mt-6 max-w-[580px] text-lg leading-9 text-neutral-400">
-              Your website is more than an online brochure—it's your hardest-working
-              sales tool. It builds trust, answers questions, and turns visitors into
-              customers long before they ever contact you.
+              {t.homeFeatures.websiteMatters.description}
             </p>
-            {/* Why website matters features */}
-            <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 max-w-[620px] mx-auto">
-              <div
-                className="
-                  rounded-2xl
-                  border border-white/10
-                  bg-white/5
-                  p-5
-                  w-full
-                  transition-all
-                  duration-300
-                  hover:-translate-y-1.5
-                  hover:border-purple-500/30
-                  hover:bg-white/[0.08]
-                  hover:shadow-[0_0_30px_rgba(124,92,255,0.18)]
-                "
-              >
-                <h4 className="font-semibold text-white">
-                  🛡 Build Trust
-                </h4>
-                <p className="mt-2 text-sm leading-7 text-neutral-400">
-                  A polished website creates credibility from the very first impression.
-                </p>
-              </div>
-              <div
-                className="
-                  rounded-2xl
-                  border border-white/10
-                  bg-white/5
-                  p-5
-                  w-full
-                  transition-all
-                  duration-300
-                  hover:-translate-y-1.5
-                  hover:border-purple-500/30
-                  hover:bg-white/[0.08]
-                  hover:shadow-[0_0_30px_rgba(124,92,255,0.18)]
-                "
-              >
-                <h4 className="font-semibold text-white">
-                  📈 Generate Leads
-                </h4>
-                <p className="mt-2 text-sm leading-7 text-neutral-400">
-                  Strategic layouts and calls-to-action convert visitors into inquiries.
-                </p>
-              </div>
+
+            {/* Cards */}
+            <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
+              {t.homeFeatures.websiteMatters.cards.map((card, index) => (
+                <div
+                  key={index}
+                  className="
+                    rounded-2xl
+                    border border-white/10
+                    bg-white/5
+                    p-5
+                    transition-all
+                    duration-300
+                    hover:-translate-y-1.5
+                    hover:border-purple-500/30
+                    hover:bg-white/[0.08]
+                    hover:shadow-[0_0_30px_rgba(124,92,255,0.18)]
+                  "
+                >
+                  <h4 className="font-semibold text-white">
+                    {card.title}
+                  </h4>
+                  <p className="mt-2 text-sm leading-7 text-neutral-400">
+                    {card.description}
+                  </p>
+                </div>
+              ))}
             </div>
-            <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 max-w-[620px] mx-auto">
-              <div
-                className="
-                  rounded-2xl
-                  border border-white/10
-                  bg-white/5
-                  p-5
-                  w-full
-                  transition-all
-                  duration-300
-                  hover:-translate-y-1.5
-                  hover:border-purple-500/30
-                  hover:bg-white/[0.08]
-                  hover:shadow-[0_0_30px_rgba(124,92,255,0.18)]
-                "
-              >
-                <h4 className="font-semibold text-white">
-                  ⚡ Always Working
-                </h4>
-                <p className="mt-2 text-sm leading-7 text-neutral-400">
-                  Your business stays open online 24 hours a day—even while you sleep.
-                </p>
-              </div>
-              <div
-                className="
-                  rounded-2xl
-                  border border-white/10
-                  bg-white/5
-                  p-5
-                  w-full
-                  transition-all
-                  duration-300
-                  hover:-translate-y-1.5
-                  hover:border-purple-500/30
-                  hover:bg-white/[0.08]
-                  hover:shadow-[0_0_30px_rgba(124,92,255,0.18)]
-                "
-              >
-                <h4 className="font-semibold text-white">
-                  🚀 Stand Out
-                </h4>
-                <p className="mt-2 text-sm leading-7 text-neutral-400">
-                  Differentiate your business with a modern experience your competitors
-                  don't have.
-                </p>
-              </div>
-            </div>
-            {/* AnimatedOrb could be placed here or elsewhere based on design; example: */}
-            {/* REMOVE OLD ORB HERE */}
-            {/* Keep existing stats and globe layout as-is in right column */}
+
+            {/* Stats */}
             <div className="mt-14 flex justify-center">
-              {/* Stats */}
               <div className="flex flex-col gap-10 sm:flex-row sm:gap-12 lg:gap-20">
-                <div className="text-center">
-                  <h3 className="text-4xl font-bold text-[#7C5CFF]">
-                    24/7
-                  </h3>
-                  <p className="mt-2 text-sm leading-6 text-neutral-400">
-                    Your website never stops working.
-                  </p>
-                </div>
-                <div className="text-center">
-                  <h3 className="text-4xl font-bold text-[#7C5CFF]">
-                    3s
-                  </h3>
-                  <p className="mt-2 text-sm leading-6 text-neutral-400">
-                    Visitors form first impressions in seconds.
-                  </p>
-                </div>
-                <div className="text-center">
-                  <h3 className="text-4xl font-bold text-[#7C5CFF]">
-                    100%
-                  </h3>
-                  <p className="mt-2 text-sm leading-6 text-neutral-400">
-                    Built specifically for your business.
-                  </p>
-                </div>
+                {t.homeFeatures.websiteMatters.stats.map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <h3 className="text-4xl font-bold text-[#7C5CFF]">
+                      {stat.number}
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-neutral-400">
+                      {stat.text}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
+
       </Container>
     </section>
   );

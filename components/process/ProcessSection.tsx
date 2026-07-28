@@ -9,73 +9,50 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Button from "@/components/shared/Button";
+import { useLanguage } from "@/context/LanguageContext";
 
-const steps = [
-  {
-    icon: (
-      <MessageSquare
-        size={28}
-        strokeWidth={1.6}
-        className="w-7 h-7 text-[#8B5CF6]"
-      />
-    ),
-    number: "01",
-    title: "Discovery Call",
-    description:
-      "We learn about your business, goals, and what you want your website to accomplish.",
-  },
-  {
-    icon: (
-      <ClipboardPen
-        size={28}
-        strokeWidth={1.6}
-        className="w-7 h-7 text-[#8B5CF6]"
-      />
-    ),
-    number: "02",
-    title: "Strategy & Planning",
-    description:
-      "We create the structure, content strategy, and layout before any design begins.",
-  },
-  {
-    icon: (
-      <Monitor
-        size={28}
-        strokeWidth={1.6}
-        className="w-7 h-7 text-[#8B5CF6]"
-      />
-    ),
-    number: "03",
-    title: "Design & Development",
-    description:
-      "Your website is professionally designed and developed for speed, responsiveness, and conversions.",
-  },
-  {
-    icon: (
-      <Rocket
-        size={28}
-        strokeWidth={1.6}
-        className="w-7 h-7 text-[#8B5CF6]"
-      />
-    ),
-    number: "04",
-    title: "Launch & Support",
-    description:
-      "Once everything is approved, we launch your website and remain available for support.",
-  },
+// Icon components array
+const icons = [
+  <MessageSquare
+    key="1"
+    size={28}
+    strokeWidth={1.6}
+    className="w-7 h-7 text-[#8B5CF6]"
+  />,
+  <ClipboardPen
+    key="2"
+    size={28}
+    strokeWidth={1.6}
+    className="w-7 h-7 text-[#8B5CF6]"
+  />,
+  <Monitor
+    key="3"
+    size={28}
+    strokeWidth={1.6}
+    className="w-7 h-7 text-[#8B5CF6]"
+  />,
+  <Rocket
+    key="4"
+    size={28}
+    strokeWidth={1.6}
+    className="w-7 h-7 text-[#8B5CF6]"
+  />
 ];
 
 export default function ProcessSection() {
+  const { t } = useLanguage();
+  const steps = t.process.steps;
+
   return (
     <section className="pt-20 pb-12 md:pt-24 md:pb-16 lg:pt-32">
       <Container>
         {/* Header */}
         <div className="mb-14">
           <h1 className="text-4xl font-bold leading-tight text-white sm:text-5xl">
-            Our Process
+            {t.process.title}
           </h1>
           <p className="mt-4 text-xs uppercase tracking-[0.2em] text-white sm:text-sm sm:tracking-[0.25em]">
-            A Simple Process That Delivers Results
+            {t.process.subtitle}
           </p>
         </div>
 
@@ -85,7 +62,7 @@ export default function ProcessSection() {
           <div className="absolute top-8 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#8B5CF6]/60 to-transparent hidden lg:block" />
 
           <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12">
-            {steps.map((step) => (
+            {steps.map((step, index) => (
               <motion.div
                 key={step.number}
                 className="relative text-center"
@@ -111,7 +88,7 @@ export default function ProcessSection() {
                   relative
                   z-10
                 ">
-                  {step.icon}
+                  {icons[index]}
                 </div>
 
                 <p className="mt-4 text-sm font-bold tracking-wider text-[#8B5CF6]">
