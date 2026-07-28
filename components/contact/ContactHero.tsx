@@ -43,16 +43,18 @@ export default function ContactHero() {
   };
 
   return (
-    <section className="pt-32 pb-16">
+    <section className="pt-20 pb-12 md:pt-24 md:pb-16 lg:pt-32">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="grid gap-10 md:gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           {/* Left */}
           <div>
-            <h1 className="text-5xl font-bold text-white">Let's Connect</h1>
+            <h1 className="text-4xl font-bold leading-tight text-white sm:text-5xl">
+              Let's Connect
+            </h1>
             <p className="mt-4 text-neutral-400">
               Have a project in mind? Let's talk.
             </p>
-            <div className="mt-12 space-y-8">
+            <div className="mt-10 space-y-6 md:mt-12 md:space-y-8">
               <div className="flex items-start gap-5">
                 <div className="rounded-xl bg-[#7C5CFF]/10 p-3 text-[#7C5CFF]">
                   <Phone size={22} />
@@ -87,8 +89,8 @@ export default function ContactHero() {
           </div>
 
           {/* Right */}
-          <div className="rounded-3xl border border-white/10 bg-[#0B0F16] p-8">
-            <h2 className="text-2xl font-semibold text-white">
+          <div className="rounded-3xl border border-white/10 bg-[#0B0F16] p-6 md:p-8">
+            <h2 className="text-xl font-semibold text-white sm:text-2xl">
               Send Us a Message
             </h2>
 
@@ -144,7 +146,7 @@ export default function ContactHero() {
       </Container>
       {showSuccess && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
-          <div className="w-full max-w-md rounded-3xl border border-white/10 bg-[#0B0F16] p-8 text-center shadow-2xl">
+          <div className="mx-5 w-full max-w-md rounded-3xl border border-white/10 bg-[#0B0F16] p-6 text-center shadow-2xl sm:mx-0 sm:p-8">
             <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-500/20">
               <svg
                 className="h-8 w-8 text-green-400"
@@ -171,7 +173,7 @@ export default function ContactHero() {
             </p>
             <button
               onClick={() => setShowSuccess(false)}
-              className="mt-8 w-full rounded-xl bg-gradient-to-r from-[#5EA7FF] to-[#8B5CF6] py-4 font-semibold text-white transition hover:opacity-90"
+              className="mt-8 w-full rounded-xl bg-gradient-to-r from-[#5EA7FF] to-[#8B5CF6] py-4 text-base font-semibold text-white transition hover:opacity-90"
             >
               Awesome!
             </button>
