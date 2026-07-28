@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import Container from "@/components/shared/Container";
-import { Phone, Mail, Clock } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function ContactHero() {
@@ -79,15 +79,7 @@ export default function ContactHero() {
                 </div>
               </div>
               {/* Location block removed */}
-              <div className="flex items-start gap-5">
-                <div className="rounded-xl bg-[#7C5CFF]/10 p-3 text-[#7C5CFF]">
-                  <Clock size={22} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-white">{t.contactPage.support}</h3>
-                  <p className="mt-1 text-neutral-400">{t.contactPage.supportValue}</p>
-                </div>
-              </div>
+              {/* Support block removed as well */}
             </div>
           </div>
 
